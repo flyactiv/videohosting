@@ -1,6 +1,6 @@
 <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <img class="me-4" src="/img/favicon.png" alt="" width="40" height="32">
+        <img class="me-4" src="https://img2.freepng.ru/20180324/gqe/kisspng-computer-icons-video-cameras-video-production-film-youtube-5ab71af41fd418.5407590815219494281304.jpg" alt="" width="40" height="40">
         <span class="fs-4">VideoHosting</span>
     </a>
 

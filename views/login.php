@@ -24,7 +24,7 @@
                     <input type="submit" name="submit" class="btn btn-success" style="width: 120px;" value="GO" />
                     <div class="os"></div>
                     <div style="font-size: 14px; color: #777;">
-                        If for some reason you are not registered on our service, then do not waste time <a href="user/reg">sign up</a>.
+                        If for some reason you are not registered on our service, then do not waste time <a href="/user/reg">sign up</a>.
                     </div>
                 </form>
             <?php else: ?>
