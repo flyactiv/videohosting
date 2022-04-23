@@ -15,10 +15,10 @@
     <div class="row">
         <div class="col-md-8">
             <form action="" method="post" class="form-login" style="display: block; width: 400px; margin: 0 auto;  padding: 20px; text-align: center;">
-                <h2><center>Регистрация</h2></center><br>
+                <h2><center>Registration</h2></center><br>
                 <input class="form-control" type="text" name="email" placeholder="E-mail" value="<?php echo $email; ?>"/><br><br>
-                <input class="form-control" type="text" name="login" placeholder="Логин" value="<?php echo $login; ?>"/><br><br>
-                <input class="form-control" type="password" name="password" placeholder="Пароль" value="<?php echo $_POST['password']; ?>"/><br><br>
+                <input class="form-control" type="text" name="login" placeholder="login" value="<?php echo $login; ?>"/><br><br>
+                <input class="form-control" type="password" name="password" placeholder="password" value="<?php echo $_POST['password']; ?>"/><br><br>
                 <div class="os"></div>
                 <input type="submit" name="submit" class="btn btn-success" style="width: 120px;" value="Registr" />
 

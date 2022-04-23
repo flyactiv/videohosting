@@ -15,21 +15,21 @@ class UserController{
             $login = $_POST['login'];
             $email = $_POST['email'];
             $pass = $_POST['pass'];
-            if (!User::checkPassword($pass)) $errors[] = 'Вы не ввели пароль, пароль меньше 6-х символов';
-            if (!User::checkName($login)) $errors[] = 'Логин меньше 3-х символов';
-            if (!User::checkEmail($email)) $errors[] = 'Не верно указан E-mail';
+            if (!User::checkPassword($pass)) $errors[] = 'You have not entered a password, the password is less than 6 characters';
+            if (!User::checkName($login)) $errors[] = 'Login less than 3 characters';
+            if (!User::checkEmail($email)) $errors[] = 'E-mail is not correct';
             else
             {
                 // Проверяем существует ли пользователь
                 $checkEmail = User::checkUserEmail($email);
                 $checkLogin = User::checkUserLogin($login);
-                if ($checkLogin == true) $errors[] = 'Пользователь с таким Логином, уже зарегистрирован, введите другой Логин';
-                if ($checkEmail == true) $errors[] = 'Пользователь с таким E-mail, уже зарегистрирован, введите другой E-mail';
+                if ($checkLogin == true) $errors[] = 'A user with this Login is already registered, enter a different Login';
+                if ($checkEmail == true) $errors[] = 'A user with this E-mail is already registered, enter another E-mail';
                 else
                 {
                     $hashed_pass = (new User)->generateHash($pass); // Сохраняем Хеш пароля
                     require_once(ROOT . '/views/index.php');
-                    if (!User::register($login, $email, $hashed_pass)) $errors[] = 'Ошибка Базы Данных';
+                    if (!User::register($login, $email, $hashed_pass)) $errors[] = 'Database Error';
                 }
             }
         }
@@ -48,10 +48,10 @@ class UserController{
             $email = $_POST['email'];
             $pass = $_POST['pass'];
             $errors = false;
-            $errors[] = 'Неправильный email';
+            $errors[] = 'Invalid email';
         }
         if (!User::checkPassword($pass)) {
-            $errors[] = 'Пароль не должен быть короче 6-ти символов';
+            $errors[] = 'Password must not be shorter than 6 characters';
         }
         $check = User::checkUserDataHash($email);
         $hashed_pass = $check['pass'];
@@ -60,7 +60,7 @@ class UserController{
             User::auth($userId);
             require_once(ROOT . '/views/index.php');
             return true;
-        } else $errors[] = 'Неправильные данные для входа на сайт';
+        } else $errors[] = 'Incorrect login details';
         require_once(ROOT . '/views/login.php');
         return true;
     }
@@ -71,6 +71,7 @@ class UserController{
         session_destroy();
         header("Location: /");
         return true;
+
     }
 
     function verify($pass, $hashedPass) {
