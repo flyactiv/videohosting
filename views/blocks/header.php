@@ -5,7 +5,7 @@
     </a>
 
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/views/index.php">Index</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Index</a>
         <a class="me-3 py-2 text-dark text-decoration-none" href="#">Enterprise</a>
         <a class="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
         <a class="py-2 text-dark text-decoration-none me-3" href="#">Pricing</a>
@@ -13,12 +13,12 @@
     <?php
         if ($_COOKIE['log'] == ''):
     ?>
-    <a class="btn btn-outline-primary me-2" href="/views/reg.php">Sign up</a>
-    <a class="btn btn-outline-primary me-2" href="/views/auth.php">Sign in</a>
+    <a class="btn btn-outline-primary me-2" href="/user/reg">Sign up</a>
+    <a class="btn btn-outline-primary me-2" href="/user/auth">Sign in</a>
     <?php
         else:
     ?>
-    <a class="btn btn-outline-primary me-2" href="/views/auth.php">User account</a>
+    <a class="btn btn-outline-primary me-2" href="/user/auth">User account</a>
     <?php
         endif;
     ?>

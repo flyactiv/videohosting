@@ -1,6 +1,6 @@
-<?php require 'blocks/head.php'?>
+<?php require 'blocks/head.php' ?>
 
-<?php require 'blocks/header.php'?>
+<?php require 'blocks/header.php' ?>
 <main class="container mt-5">
     <div class="row">
         <div class="col-md-8">
@@ -8,7 +8,7 @@
 
             General
         </div>
-        <?php require 'blocks/aside.php'?>
+        <?php require 'blocks/aside.php' ?>
     </div>
 </main>
 
@@ -16,4 +16,4 @@
 
 
 
-<?php require 'blocks/footer.php'?>
+<?php require 'blocks/footer.php' ?>
