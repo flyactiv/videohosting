@@ -28,6 +28,7 @@ class UserController{
                 else
                 {
                     $hashed_pass = (new User)->generateHash($pass); // Сохраняем Хеш пароля
+                    require_once(ROOT . '/views/index.php');
                     if (!User::register($login, $email, $hashed_pass)) $errors[] = 'Ошибка Базы Данных';
                 }
             }
