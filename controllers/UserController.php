@@ -37,4 +37,44 @@ class UserController{
         require_once(ROOT . '/views/reg.php');
         return true;
     }
+
+
+
+    public function actionLogin()
+    {
+        $email = false;
+        $pass = false;
+        if (isset($_POST['submit'])) {
+            $email = $_POST['email'];
+            $pass = $_POST['pass'];
+            $errors = false;
+            $errors[] = 'Неправильный email';
+        }
+        if (!User::checkPassword($pass)) {
+            $errors[] = 'Пароль не должен быть короче 6-ти символов';
+        }
+        $check = User::checkUserDataHash($email);
+        $hashed_pass = $check['pass'];
+        $userId = $check['id'];
+        if ($this->verify($pass, $hashed_pass)) {
+            User::auth($userId);
+            require_once(ROOT . '/views/index.php');
+            return true;
+        } else $errors[] = 'Неправильные данные для входа на сайт';
+        require_once(ROOT . '/views/login.php');
+        return true;
+    }
+
+    public function actionLogout()
+    {
+        unset($_SESSION["user"]);
+        session_destroy();
+        header("Location: /");
+        return true;
+    }
+
+    function verify($pass, $hashedPass) {
+        return crypt($pass, $hashedPass) == $hashedPass;
+    }
+
 }

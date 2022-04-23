@@ -14,11 +14,11 @@
         if ($_COOKIE['log'] == ''):
     ?>
     <a class="btn btn-outline-primary me-2" href="/user/reg">Sign up</a>
-    <a class="btn btn-outline-primary me-2" href="/user/auth">Sign in</a>
+    <a class="btn btn-outline-primary me-2" href="/user/login">Sign in</a>
     <?php
         else:
     ?>
-    <a class="btn btn-outline-primary me-2" href="/user/auth">User account</a>
+    <a class="btn btn-outline-primary me-2" href="/user/logout">User account</a>
     <?php
         endif;
     ?>

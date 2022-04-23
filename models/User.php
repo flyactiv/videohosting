@@ -65,4 +65,36 @@ class User{
     }
 
 
+
+    public static function checkUserDataHash($email)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+        // Текст запроса к БД
+        $sql = 'SELECT * FROM users WHERE email = :email';
+        // Получение результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        return $result->fetch();
+    }
+
+    public static function auth($userId)
+    {
+        // Записываем идентификатор пользователя в сессию
+        $_SESSION['user'] = $userId;
+    }
+
+    public static function isGuest()
+    {
+        if (isset($_SESSION['user'])) return false;
+        else return true;
+    }
+
+
+
+
+
 }
