@@ -100,4 +100,24 @@ class Page{
 
         return $result->execute();
     }
+
+
+    public static function getFiles()
+    {
+        $db = Db::getConnection();
+        $result = $db->query('SELECT * FROM files WHERE id_author = 9 ORDER BY id DESC ');
+        $files = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $files[$i]['id'] = $row['id'];
+            $files[$i]['uploadfile'] = $row['uploadfile'];
+            $files[$i]['title'] = $row['title'];
+            $files[$i]['url'] = $row['url'];
+            $files[$i]['id_author'] = $row['id_author'];
+            $i++;
+        }
+        return $files;
+    }
+
+
 }

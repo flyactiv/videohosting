@@ -88,6 +88,12 @@ class SiteController
         return true;
     }
 
+    public function actionAllFiles() {
+        $files = Page::getFiles();
+        require_once(ROOT . '/views/login.php');
+        return true;
+    }
+
 
 }
 ?>
