@@ -8,7 +8,17 @@
             <hr />
             <h5>Here you can watch other people's videos or upload yours.</h5><br><br>
             <div>
-                <img class="img-fluid img-thumbnail shadow" width="600" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5JbYXkAeUcmVYS0Crg5pQFC34hzUegCEaew&usqp=CAU" alt="">
+
+                <div class="fotorama">
+                    <? include_once './models/Page.php';
+                    $files = Page::getFiles();
+                    foreach ($files as $files): ?>
+                    <video width="100%" height="340" controls="controls" poster="https://activation-keys.ru/wp-content/uploads/2019/03/fcb710093aa005a868c24a7048d2a18d.jpg">
+                        <source src="../views/files/<? echo $files['url'];?>.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                    </video>
+                    <? endforeach; ?>
+                </div>
+
             </div>
         </div>
         <?php require 'blocks/aside.php' ?>
