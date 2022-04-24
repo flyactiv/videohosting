@@ -13,7 +13,7 @@
 
 <main class="container mt-5">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" style="display: block; width: 600px; margin: 0 auto; background: #eaedf8; padding: 20px; color:#555; text-align: center;">
             <form action="" method="post" class="form-login" style="display: block; width: 400px; margin: 0 auto;  padding: 20px; text-align: center;">
                 <h2><center>Registration</h2></center><br>
                 <input class="form-control" type="text" name="email" placeholder="E-mail" value="<?php echo $email; ?>"/><br><br>

@@ -1,4 +1,4 @@
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
+<footer class="pt-4 mt-5 pt-md-5 border-top" style="background: linear-gradient(#5756b3, #100f4d)">
     <div class="row">
         <div class="col-12 col-md">
             <img class="mb-2" src="https://img2.freepng.ru/20180324/gqe/kisspng-computer-icons-video-cameras-video-production-film-youtube-5ab71af41fd418.5407590815219494281304.jpg" alt="" width="24" height="24">
