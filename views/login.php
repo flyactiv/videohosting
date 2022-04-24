@@ -29,8 +29,11 @@
                 </form>
             <?php else: ?>
                 <div style="display: block; width: 400px; margin: 0 auto; background: #f2f1f0; padding: 20px; color:#555; text-align: center;">
-                    <center><h2 style="color:#555;"> You are already logged in</h2></center>
+
+                    <center><h2 style="color:#555;"> You are already logged in </h2></center>
                     <br> <br>
+                    <input type="button" value="Upload Files" class="btn btn-success" onClick='location.href="/download"'>
+                     <br> <br>
                     <input type="button" value="Exit" class="btn btn-danger" onClick='location.href="/user/logout"'>
                 </div>
             <?php endif; ?>
