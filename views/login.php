@@ -34,6 +34,12 @@
                     <input type="button" value="Upload Files" class="btn btn-success" onClick='location.href="/download"'>
                      <br> <br>
                     <input type="button" value="Exit" class="btn btn-danger" onClick='location.href="/user/logout"'>
+                    <br> <br>
+                    <input type="button" value="Reset Password" class="btn btn-success" onClick='location.href="/user/reset_password"'>
+                    <br> <br>
+
+
+
 
                     <br><br><br><h1>ALL YOUR VIDEOS</h1><br>
                     <table>
@@ -51,6 +57,7 @@
                                         <source src="../views/files/<? echo $files['url'];?>.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
 
                                     </video>
+
                                     <br>
 
                                 </td>

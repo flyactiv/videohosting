@@ -23,7 +23,9 @@ class Router
         $this->routes = include($routesPath);
     }
 
-    /*** Возвращает строку запроса*/
+    /**
+     * Возвращает строку запроса
+     */
     private function getURI()
     {
         if (!empty($_SERVER['REQUEST_URI'])) {
@@ -66,7 +68,7 @@ class Router
                 // Создать объект, вызвать метод (т.е. action)
                 $controllerObject = new $controllerName;
 
-                /* Вызываем необходимый метод ($actionName) у определенного
+                /** Вызываем необходимый метод ($actionName) у определенного
                  * класса ($controllerObject) с заданными ($parameters) параметрами
                  */
 

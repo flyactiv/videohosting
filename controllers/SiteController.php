@@ -1,21 +1,35 @@
 <?php
 
 include_once './models/Page.php';
+
+/**
+ * Класс-контроллер для управления всем на сайте, что не связано с аккаунтами пользователей
+ */
 class SiteController
 {
+    /**
+     * Функция загрузки главной страницы
+     * @return bool
+     */
     public function actionIndex()
     {
         require_once(ROOT . '/views/index.php');
         return true;
     }
 
+    /**
+     * Функция загрузки страницы конктактов
+     * @return bool
+     */
     public function actionContacts()
     {
         require_once(ROOT . '/views/contacts.php');
         return true;
     }
 
-
+    /**
+     * Функция загрузки видеороликов через форму загрузки
+     */
     public function actionDownload()
     {
         function HumanBytes($size)
@@ -74,7 +88,7 @@ class SiteController
                             $result = Page::add_news($title, $date, $url, $rash, $size);
                             if ($result == true) {
                                 $true[] = 'File upload.';
-                                require_once(ROOT . './views/index.php');
+                                #require_once(ROOT . './views/index.php');
                             } else {
                                 $errors = [];
                                 $errors[] = 'loading error!';
@@ -94,11 +108,16 @@ class SiteController
         return true;
     }
 
+    /**
+     * Функция получения всех файлов в личном кабинете
+     * @return bool
+     */
     public function actionAllFiles() {
         $files = Page::getFiles();
         require_once(ROOT . '/views/login.php');
         return true;
     }
+
 
 
 }

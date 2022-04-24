@@ -2,10 +2,18 @@
 
 
 include_once './models/User.php';
+
+/**
+ * Класс контроллер всех действий связанных с аккаунтами пользователей
+ */
 class UserController{
+    /**
+     * Функция для регистрации пользователей и вывода формы регистрации
+     * @return bool
+     */
     public function actionReg()
     {
-        // Объявим переменые, что не возникало ошибок
+        // Объявим переменые, чтобы не возникало ошибок
         $login = false;
         $email = false;
         $pass = false;
@@ -28,7 +36,7 @@ class UserController{
                 else
                 {
                     $hashed_pass = (new User)->generateHash($pass); // Сохраняем Хеш пароля
-                    require_once(ROOT . '/views/index.php');
+                    header("Location: /");
                     if (!User::register($login, $email, $hashed_pass)) $errors[] = 'Database Error';
                 }
             }
@@ -39,7 +47,10 @@ class UserController{
     }
 
 
-
+    /**
+     * Функция для входа в аккаунт и вывода формы входа
+     * @return bool
+     */
     public function actionLogin()
     {
         $email = false;
@@ -57,7 +68,7 @@ class UserController{
             $userId = $check['id'];
             if ($this->verify($pass, $hashed_pass)) {
                 User::auth($userId);
-                require_once(ROOT . '/views/index.php');
+                header("Location: /user/login");
                 return true;
             } else $errors[] = 'Incorrect login details';
         }
@@ -66,6 +77,10 @@ class UserController{
         return true;
     }
 
+    /**
+     * Функция выхода из аккаунта
+     * @return bool
+     */
     public function actionLogout()
     {
         unset($_SESSION["user"]);
@@ -75,8 +90,64 @@ class UserController{
 
     }
 
+    /**
+     * Функция для проверки хеширования пароля
+     * @param $pass
+     * @param $hashedPass
+     * @return bool
+     */
     function verify($pass, $hashedPass) {
         return crypt($pass, $hashedPass) == $hashedPass;
+    }
+
+
+    /**
+     * Функция для восстановления пароля
+     * @return bool
+     */
+    public function actionReset()
+    {
+        $index['title'] = 'Восстановление пароля';
+        if (isset($_POST['submit'])) {
+            $email = $_POST['email'];
+            $email_send = $email;
+            if (!User::checkEmail($email)) echo 'Неверно указан E-mail' . '<br>';
+            else {
+                $result = User::checkUserEmail($email);
+                if ($result == true) {
+                    $check = User::checkUserDataHash($email);
+                    $id_user = $check['id'];
+                    $pass = User::generate_password();
+                    $hash_password = (new User)->generateHash($pass);
+                    User::editPassword($id_user, $hash_password);
+                    if (User::sendEmailPassword($email_send, $pass)) {
+                        // Подключаем вид
+                        require_once(ROOT . '/views/reset_password_ok.php');
+                        return true;
+                    } else $errors[] = 'Ошибка почтового клиента';
+                } else $errors[] = 'Пользователя с таким E-mail не существует';
+            }
+        }
+        // Подключаем вид
+        require_once(ROOT . '/views/reset_password.php');
+        return true;
+    }
+
+    /**
+     * Функция для удаления аккаунта пользователя
+     * @return bool
+     */
+    public function actionDelete()
+    {
+
+        if (isset($_POST['submit']))
+        {
+            $id = $_POST['id'];
+            User::deleteAccount($id);
+            header("Location: /user/reg");
+        }
+        require_once(ROOT . '/views/delete_account.php');
+        return true;
     }
 
 }
