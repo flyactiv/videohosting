@@ -1,6 +1,6 @@
 
 <aside class="col-md-4">
-    <div class="p-3 mb-3  rounded" style="background-color: rgba(59,56,195,0.87)">
+    <div class="p-3 mb-3  rounded" style="background-color: #5e989f">
         <h4><b>Interesting video for you</b></h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque cum doloremque dolores earum?</p>
     </div>

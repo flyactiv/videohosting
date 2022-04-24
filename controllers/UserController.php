@@ -49,18 +49,19 @@ class UserController{
             $pass = $_POST['pass'];
             $errors = false;
             $errors[] = 'Invalid email';
+            if (!User::checkPassword($pass)) {
+                $errors[] = 'Password must not be shorter than 6 characters';
+            }
+            $check = User::checkUserDataHash($email);
+            $hashed_pass = $check['pass'];
+            $userId = $check['id'];
+            if ($this->verify($pass, $hashed_pass)) {
+                User::auth($userId);
+                require_once(ROOT . '/views/index.php');
+                return true;
+            } else $errors[] = 'Incorrect login details';
         }
-        if (!User::checkPassword($pass)) {
-            $errors[] = 'Password must not be shorter than 6 characters';
-        }
-        $check = User::checkUserDataHash($email);
-        $hashed_pass = $check['pass'];
-        $userId = $check['id'];
-        if ($this->verify($pass, $hashed_pass)) {
-            User::auth($userId);
-            require_once(ROOT . '/views/index.php');
-            return true;
-        } else $errors[] = 'Incorrect login details';
+
         require_once(ROOT . '/views/login.php');
         return true;
     }

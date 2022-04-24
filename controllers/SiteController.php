@@ -9,6 +9,12 @@ class SiteController
         return true;
     }
 
+    public function actionContacts()
+    {
+        require_once(ROOT . '/views/contacts.php');
+        return true;
+    }
+
 
     public function actionDownload()
     {

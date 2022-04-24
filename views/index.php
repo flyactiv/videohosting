@@ -3,11 +3,11 @@
 <?php require 'blocks/header.php' ?>
 <main class="container mt-5">
     <div class="row">
-        <div class="col-md-8" style="display: block; width: 600px; margin: 0 auto; background: #eaedf8; padding: 20px; color:#555; text-align: center; align-content: center;">
+        <div class="col-md-8" style="width: 600px; margin: 0 auto; background: #eaf1f5; padding: 20px; color:#555; text-align: left; align-content: center;">
             <h2>Hello, this is Video Hosting site</h2>
             <hr />
-            <h5>Here you can watch other people's videos or upload yours.</h5><br><br>
-            <div>
+            <h5>Here you can watch other people's videos or upload yours.</h5><br>
+            <div class="p-4">
 
                 <div class="fotorama">
                     <? include_once './models/Page.php';

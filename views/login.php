@@ -2,19 +2,9 @@
 
 <?php require 'blocks/header.php' ?>
 
-<div style="color: red; font-size: 14px; padding: 20px; margin: 0 auto; display: block; width:400px;">
-    <?php if (isset($errors) && is_array($errors)): ?>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-                <li> - <?php echo $error; ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-</div>
-
 <main class="container mt-5">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" style="display: block; width: 600px; margin: 0 auto; background: #eaf1f5; padding: 20px; color:#555; text-align: center; align-content: center;">
             <?php if (User::isGuest()): ?>
                 <form action="" method="post" class="form-login" style="display: block; width: 400px; margin: 0 auto;  padding: 20px; text-align: center;">
                     <center><h2>Authorization</h2></center><br>
@@ -27,8 +17,17 @@
                         If for some reason you are not registered on our service, then do not waste time <a href="/user/reg">sign up</a>.
                     </div>
                 </form>
+                <div style="color: red; font-size: 14px; padding: 20px; margin: 0 auto;  width:400px;">
+                    <?php if (isset($errors) && is_array($errors)): ?>
+                        <ul>
+                            <?php foreach ($errors as $error): ?>
+                                <li> - <?php echo $error; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
             <?php else: ?>
-                <div style="display: block; width: 600px; margin: 0 auto; background: #eaedf8; padding: 20px; color:#555; text-align: center;">
+                <div style="display: block; width: 600px; margin: 0 auto; padding: 20px; color:#555; text-align: center;">
 
                     <center><h2 style="color:#555;"> You are already logged in </h2></center>
                     <br> <br>

@@ -29,13 +29,11 @@
 
 <main class="container mt-5">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" style="display: block; width: 600px; margin: 0 auto; background: #eaf1f5; padding: 20px; color:#555; text-align: center; align-content: center;">
             <h4>Upload your video</h4>
-            <br/>
-
-
+            <hr/>
             Allowed file formats: <b>*.MP4</b>
-            <br><br>
+            <br>
             <?php if (isset($er_z) && is_array($er_z)): ?>
                 <div style="padding:20px 20px 20px 20px; margin: 20px; background:#f1f1f1;">
                     <ul style="color:red; width:100%;">
@@ -65,7 +63,7 @@
                     </ul>
                 </div>
             <?php endif; ?>
-            <form method="post" action="" class=" " enctype="multipart/form-data" style="width:100%; ">
+            <form method="post" action="" class="p-5 " enctype="multipart/form-data" style="width:100%; ">
                 <table class="admin_table">
                     <tr>
                         <td>Title *</td>
