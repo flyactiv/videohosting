@@ -22,7 +22,7 @@ Then run program with "openServer" Panel
 
 
 
-VIEW OF THE APPLICATION
+# VIEW OF THE APPLICATION
 
 ![image](https://user-images.githubusercontent.com/70800450/165182319-e52755e7-ae84-49ab-954d-40eda20f423d.png)
 
